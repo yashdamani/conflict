@@ -504,6 +504,87 @@
                         }
                     }
                 
+        document.addEventListener("keyup", keyUpManager);
+        document.addEventListener("keydown", keyDownManager);
+
+
+        function c_level_Design(level_xPos, level_yPos, tileType) {
+            this.level_xPos = level_xPos;
+            this.level_yPos = level_yPos;
+            this.level_grid_Type = tileType;
+            this.render_Object = false;
+
+            this.draw_Level = m_draw_Level;
+            this.render_Level = m_render_Level;
+        }
+
+
+        function m_draw_Level(xPos, yPos, object_name) {
+
+            ctx.drawImage(object_name, xPos, yPos);
+        }
+        
+        
+
+        function m_render_Level() {
+            if (this.level_grid_Type == 1) {
+                this.draw_Level(this.level_xPos, this.level_yPos, brick_Image);
+
+            }
+
+            if (this.level_grid_Type == 2) {
+                this.draw_Level(this.level_xPos, this.level_yPos, purple_Brick_Image);
+            }
+
+            if (this.level_grid_Type == 3) {
+                this.render_Object = true;
+                this.draw_Level(this.level_xPos, this.level_yPos, door_Image);
+                this.render_Object = false;
+            }
+
+            if (this.level_grid_Type == 4) {
+                f_counter++;
+                random =  Math.floor((Math.random() * (3 - 0 + 1)) + 0 );
+                if (f_counter >= 0 && f_counter < fireGap) {
+                    
+                    this.draw_Level(this.level_xPos, this.level_yPos + 14, fire_Image_Array[random]);
+                }
+
+                if (f_counter >= fireGap && f_counter < fireGap * 2) {
+                    this.draw_Level(this.level_xPos, this.level_yPos + 14, fire_Image_Array[random]);
+                }
+
+                if (f_counter >= fireGap * 2 && f_counter < fireGap * 3) {
+                    this.draw_Level(this.level_xPos, this.level_yPos + 14, fire_Image_Array[random]);
+                }
+
+                if (f_counter >= fireGap * 3 && f_counter < fireGap * 4) {
+                    this.draw_Level(this.level_xPos, this.level_yPos + 14, fire_Image_Array[random]);
+                    f_counter = 0;
+                }
+
+            }
+
+            if (this.level_grid_Type == 5) {
+                w_counter++;
+                if (w_counter >= 0 && w_counter < waterGap) {
+                    this.draw_Level(this.level_xPos, this.level_yPos + 13, water_Image_Array[0]);
+                }
+
+                if (w_counter >= waterGap && w_counter < waterGap * 2) {
+
+                    this.draw_Level(this.level_xPos, this.level_yPos + 13, water_Image_Array[1]);
+                }
+
+                if (w_counter >= waterGap * 2 && w_counter < waterGap * 3) {
+                    this.draw_Level(this.level_xPos, this.level_yPos +13, water_Image_Array[2]);
+                }
+
+                if (w_counter >= waterGap * 3 && w_counter < waterGap * 4) {
+                    this.draw_Level(this.level_xPos, this.level_yPos + 13, water_Image_Array[3]);
+                    w_counter = 0;
+                }
+            }
                 if (level_Design_Array[i].level_grid_Type == 4 || level_Design_Array[i].level_grid_Type == 5)
                 {
                     explosion_Counter++;
@@ -571,9 +652,171 @@
             }
         }
 
+        document.addEventListener("keyup", keyUpManager);
+        document.addEventListener("keydown", keyDownManager);
+
+
+        function c_level_Design(level_xPos, level_yPos, tileType) {
+            this.level_xPos = level_xPos;
+            this.level_yPos = level_yPos;
+            this.level_grid_Type = tileType;
+            this.render_Object = false;
+
+            this.draw_Level = m_draw_Level;
+            this.render_Level = m_render_Level;
+        }
+
+
+        function m_draw_Level(xPos, yPos, object_name) {
+
+            ctx.drawImage(object_name, xPos, yPos);
+        }
+        
+        
+
+        function m_render_Level() {
+            if (this.level_grid_Type == 1) {
+                this.draw_Level(this.level_xPos, this.level_yPos, brick_Image);
+
+            }
+
+            if (this.level_grid_Type == 2) {
+                this.draw_Level(this.level_xPos, this.level_yPos, purple_Brick_Image);
+            }
+
+            if (this.level_grid_Type == 3) {
+                this.render_Object = true;
+                this.draw_Level(this.level_xPos, this.level_yPos, door_Image);
+                this.render_Object = false;
+            }
+
+            if (this.level_grid_Type == 4) {
+                f_counter++;
+                random =  Math.floor((Math.random() * (3 - 0 + 1)) + 0 );
+                if (f_counter >= 0 && f_counter < fireGap) {
+                    
+                    this.draw_Level(this.level_xPos, this.level_yPos + 14, fire_Image_Array[random]);
+                }
+
+                if (f_counter >= fireGap && f_counter < fireGap * 2) {
+                    this.draw_Level(this.level_xPos, this.level_yPos + 14, fire_Image_Array[random]);
+                }
+
+                if (f_counter >= fireGap * 2 && f_counter < fireGap * 3) {
+                    this.draw_Level(this.level_xPos, this.level_yPos + 14, fire_Image_Array[random]);
+                }
+
+                if (f_counter >= fireGap * 3 && f_counter < fireGap * 4) {
+                    this.draw_Level(this.level_xPos, this.level_yPos + 14, fire_Image_Array[random]);
+                    f_counter = 0;
+                }
+
+            }
+
+            if (this.level_grid_Type == 5) {
+                w_counter++;
+                if (w_counter >= 0 && w_counter < waterGap) {
+                    this.draw_Level(this.level_xPos, this.level_yPos + 13, water_Image_Array[0]);
+                }
+
+                if (w_counter >= waterGap && w_counter < waterGap * 2) {
+
+                    this.draw_Level(this.level_xPos, this.level_yPos + 13, water_Image_Array[1]);
+                }
+
+                if (w_counter >= waterGap * 2 && w_counter < waterGap * 3) {
+                    this.draw_Level(this.level_xPos, this.level_yPos +13, water_Image_Array[2]);
+                }
+
+                if (w_counter >= waterGap * 3 && w_counter < waterGap * 4) {
+                    this.draw_Level(this.level_xPos, this.level_yPos + 13, water_Image_Array[3]);
+                    w_counter = 0;
+                }
+            }
 
         init_Level_Design();
 
+        document.addEventListener("keyup", keyUpManager);
+        document.addEventListener("keydown", keyDownManager);
+
+
+        function c_level_Design(level_xPos, level_yPos, tileType) {
+            this.level_xPos = level_xPos;
+            this.level_yPos = level_yPos;
+            this.level_grid_Type = tileType;
+            this.render_Object = false;
+
+            this.draw_Level = m_draw_Level;
+            this.render_Level = m_render_Level;
+        }
+
+
+        function m_draw_Level(xPos, yPos, object_name) {
+
+            ctx.drawImage(object_name, xPos, yPos);
+        }
+        
+        
+
+        function m_render_Level() {
+            if (this.level_grid_Type == 1) {
+                this.draw_Level(this.level_xPos, this.level_yPos, brick_Image);
+
+            }
+
+            if (this.level_grid_Type == 2) {
+                this.draw_Level(this.level_xPos, this.level_yPos, purple_Brick_Image);
+            }
+
+            if (this.level_grid_Type == 3) {
+                this.render_Object = true;
+                this.draw_Level(this.level_xPos, this.level_yPos, door_Image);
+                this.render_Object = false;
+            }
+
+            if (this.level_grid_Type == 4) {
+                f_counter++;
+                random =  Math.floor((Math.random() * (3 - 0 + 1)) + 0 );
+                if (f_counter >= 0 && f_counter < fireGap) {
+                    
+                    this.draw_Level(this.level_xPos, this.level_yPos + 14, fire_Image_Array[random]);
+                }
+
+                if (f_counter >= fireGap && f_counter < fireGap * 2) {
+                    this.draw_Level(this.level_xPos, this.level_yPos + 14, fire_Image_Array[random]);
+                }
+
+                if (f_counter >= fireGap * 2 && f_counter < fireGap * 3) {
+                    this.draw_Level(this.level_xPos, this.level_yPos + 14, fire_Image_Array[random]);
+                }
+
+                if (f_counter >= fireGap * 3 && f_counter < fireGap * 4) {
+                    this.draw_Level(this.level_xPos, this.level_yPos + 14, fire_Image_Array[random]);
+                    f_counter = 0;
+                }
+
+            }
+
+            if (this.level_grid_Type == 5) {
+                w_counter++;
+                if (w_counter >= 0 && w_counter < waterGap) {
+                    this.draw_Level(this.level_xPos, this.level_yPos + 13, water_Image_Array[0]);
+                }
+
+                if (w_counter >= waterGap && w_counter < waterGap * 2) {
+
+                    this.draw_Level(this.level_xPos, this.level_yPos + 13, water_Image_Array[1]);
+                }
+
+                if (w_counter >= waterGap * 2 && w_counter < waterGap * 3) {
+                    this.draw_Level(this.level_xPos, this.level_yPos +13, water_Image_Array[2]);
+                }
+
+                if (w_counter >= waterGap * 3 && w_counter < waterGap * 4) {
+                    this.draw_Level(this.level_xPos, this.level_yPos + 13, water_Image_Array[3]);
+                    w_counter = 0;
+                }
+            }
         function game_Loop() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             background();
@@ -586,6 +829,87 @@
             dave_Object.draw_Dave();
         }
 
+        document.addEventListener("keyup", keyUpManager);
+        document.addEventListener("keydown", keyDownManager);
+
+
+        function c_level_Design(level_xPos, level_yPos, tileType) {
+            this.level_xPos = level_xPos;
+            this.level_yPos = level_yPos;
+            this.level_grid_Type = tileType;
+            this.render_Object = false;
+
+            this.draw_Level = m_draw_Level;
+            this.render_Level = m_render_Level;
+        }
+
+
+        function m_draw_Level(xPos, yPos, object_name) {
+
+            ctx.drawImage(object_name, xPos, yPos);
+        }
+        
+        
+
+        function m_render_Level() {
+            if (this.level_grid_Type == 1) {
+                this.draw_Level(this.level_xPos, this.level_yPos, brick_Image);
+
+            }
+
+            if (this.level_grid_Type == 2) {
+                this.draw_Level(this.level_xPos, this.level_yPos, purple_Brick_Image);
+            }
+
+            if (this.level_grid_Type == 3) {
+                this.render_Object = true;
+                this.draw_Level(this.level_xPos, this.level_yPos, door_Image);
+                this.render_Object = false;
+            }
+
+            if (this.level_grid_Type == 4) {
+                f_counter++;
+                random =  Math.floor((Math.random() * (3 - 0 + 1)) + 0 );
+                if (f_counter >= 0 && f_counter < fireGap) {
+                    
+                    this.draw_Level(this.level_xPos, this.level_yPos + 14, fire_Image_Array[random]);
+                }
+
+                if (f_counter >= fireGap && f_counter < fireGap * 2) {
+                    this.draw_Level(this.level_xPos, this.level_yPos + 14, fire_Image_Array[random]);
+                }
+
+                if (f_counter >= fireGap * 2 && f_counter < fireGap * 3) {
+                    this.draw_Level(this.level_xPos, this.level_yPos + 14, fire_Image_Array[random]);
+                }
+
+                if (f_counter >= fireGap * 3 && f_counter < fireGap * 4) {
+                    this.draw_Level(this.level_xPos, this.level_yPos + 14, fire_Image_Array[random]);
+                    f_counter = 0;
+                }
+
+            }
+
+            if (this.level_grid_Type == 5) {
+                w_counter++;
+                if (w_counter >= 0 && w_counter < waterGap) {
+                    this.draw_Level(this.level_xPos, this.level_yPos + 13, water_Image_Array[0]);
+                }
+
+                if (w_counter >= waterGap && w_counter < waterGap * 2) {
+
+                    this.draw_Level(this.level_xPos, this.level_yPos + 13, water_Image_Array[1]);
+                }
+
+                if (w_counter >= waterGap * 2 && w_counter < waterGap * 3) {
+                    this.draw_Level(this.level_xPos, this.level_yPos +13, water_Image_Array[2]);
+                }
+
+                if (w_counter >= waterGap * 3 && w_counter < waterGap * 4) {
+                    this.draw_Level(this.level_xPos, this.level_yPos + 13, water_Image_Array[3]);
+                    w_counter = 0;
+                }
+            }
         setInterval(game_Loop, 33.33);
 
     </script>
